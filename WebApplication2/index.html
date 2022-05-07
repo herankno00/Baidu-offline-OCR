@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+ 
+    <title>Playground Test Engine</title>
+   
+  </head>
+  
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+　
+　  //前端第一种提交方式
+    function  uplpadfile(){
+        //获取表单的数据        
+        var formdata
+        var file = $("#files").get(0);
+        var files = file.files;
+        var formdata = new FormData();
+        for (var i = 0; i < files.length; i++) {
+            formdata.append("files", files[i]);
+        }
+                
+        $.ajax({
+            type:'Post',
+            data:formdata,                        
+            contentType: false,
+            processData: false,
+            url:"http://localhost:5000/weatherforecast",
+            success:function(result){
+                console.log(result)    
+            }
+        })
+
+        
+    };</script><body>
+    <h1>通过form表单提交</h1>
+<form id="myform" name="myform" method="post" enctype="multipart/form-data" 
+                    action="http://localhost:5000/weatherforecast">
+    <input type="file" name="files" id="files" value="选择需要上传的文件" multiple />
+    <input type="button" id="submitbtn" value="提交" onclick="uplpadfile()">
+</form>
+  </body>
+</html>
