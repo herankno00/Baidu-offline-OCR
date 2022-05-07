@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Reference Include="OpenCvSharp">
-      <HintPath>bin\Debug\net5.0\Common\OpenCvSharp.dll</HintPath>
+      <HintPath>bin\Release\net5.0\win-x64\OpenCvSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 
